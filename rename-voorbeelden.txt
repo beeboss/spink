@@ -1,0 +1,27 @@
+  503  cd Agents.of.S.H.I.E.L.D.S01E01-22.720p.WEB-DL.x264.AAC/
+
+iedere file hierin heeft een naam als "Agents.of.S.H.I.E.L.D.S01E01.720p.WEB-DL.x264.AAC.Pilot.mp4"
+
+  506  for i in * ; do echo $i ; done
+  507  for i in * ; do echo mv $i ${i%720p.*} ; done
+  508  for i in * ; do echo mv $i ${i%720p.*}mp4 ; done
+
+blijkt goed, dus uitvoeren:
+  509  for i in * ; do mv $i ${i%720p.*}.mp4 ; done
+
+voorkant veranderen, (ook de 'S' van "season" wordt kleine 's'):
+  514  for i in * ; do echo mv $i agentsofshield.s${i#Agents.of.S.H.I.E.L.D.S} ; done
+  515  for i in * ; do mv $i agentsofshield.s${i#Agents.of.S.H.I.E.L.D.S} ; done
+  519  ls
+
+nu nog de 'E' van "episode" veranderen in kleine 'e'
+  520  for i in * ; do echo sed "s/s01E/s01e/" ; done
+  521  for i in * ; do echo sed -i "s/s01E/s01e/" $i; done
+
+ff met CLI testen op 1'tje #### NIET DOEN , is FOUT, gaat *in* de file dan vervangen ##################
+  FOUT FOUT FOUT FOUT 522  sed -i s/s01E/s01e/ agentsofshield.s01E01.Pilot.mp4 FOUT FOUT FOUT FOUT
+CTL-C
+
+deze is wel goed:
+  523  for i in * ; do echo mv $i `echo $i | sed "s/s01E/s01e/"` ; done
+
