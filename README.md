@@ -1,2 +1,0 @@
-# spink
-spink sandbox
