@@ -1,6 +1,6 @@
 31-mei-2018:
     - github push werkt met ander project jenkins... nu wel
-    - jenkins draait nu in container op vps joetoep.com
+    - jenkins draait nu in container op vps 
     - github-jenkins met webhook , projectnaam jenkins.....  werkt nu wel
 
 -----------
